@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+
+<title>Angular ToDo List App</title>
+
+	<meta charset="utf-8">
+
+  <!-- links to angular.js -->
+     <script type="text/javascript" src="js/angular.js"></script>
+     <script type="text/javascript" src="js/myTodapp2.js"></script>
+	 <script type="text/javascript" src="phonegap.js"></script>
+
+  <!-- links to css file -->
+   <link rel="stylesheet" href="css/w3.css">
+    
+</head>
+
+<!-- wire up angular app initialise view-->
+<body data-ng-app="Todo">
+
+  <!-- links view ng-contoller -->
+
+  <div class="page-container" data-ng-controller="TodoCtrl">
+
+    <h2>A ToDo List</h2>
+      <ul class="add-todo">
+        <li>
+ <!-- set form for user input with placeholder -->         
+           <input type="text" class="w3-input w3-border" placeholder="Enter New Task"
+             data-ng-model="newTodo" data-ng-keyup="add($event)" />
+        </li>
+      </ul>
+
+  <!-- repeats over list binds to the view -->
+
+      <ul class="todo-list" data-ng-repeat="todo in todos track by $index">
+        <li>
+          <span>{{ todo }}</span>
+          <button class="w3-btn w3-green w3-ripple" data-ng-click="done(todo)">Click when Done</button>
+        </li>
+      </ul>
+  
+      
+  </div>  
+  
+ </body>
+
+</html>
+
+
